@@ -13,6 +13,7 @@ for n in to_convert:
 
         elif n == " ":
             to_convert = to_convert.replace(n, "/")
+        print(to_convert)
     except KeyError:
         print(f"this({n}) isn't in morse code, \n"
               f"Morse code have limited amount of symbols, cause proper grammar isn't first priority in war")
