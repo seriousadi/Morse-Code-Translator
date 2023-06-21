@@ -1,20 +1,24 @@
 from MORSECODE import MorseCode
 
-codes = MorseCode().morse_code
+morse_codes = MorseCode().morse_code
 
-# changing input value to string and everything in upper
-print("spaces are converted to '/' for easy readability")
-to_convert = str(input("Enter what you want to convert into morse code : ")).upper()
 
-for n in to_convert:
-    try:
-        if n != " ":
-            to_convert = to_convert.replace(n, codes[n])
+class GetMorseCode():
+    def __init__(self):
+        pass
 
-        elif n == " ":
-            to_convert = to_convert.replace(n, "/")
-        print(to_convert)
-    except KeyError:
-        print(f"this({n}) isn't in morse code, \n"
-              f"Morse code have limited amount of symbols, cause proper grammar isn't first priority in war")
-        break
+    def convert_morse_code(self, string: str):
+        string = string.upper()
+        for n in string:
+            try:
+                if n != " ":
+                    string = string.replace(n, morse_codes[n])
+
+                elif n == " ":
+                    string = string.replace(n, "space")
+
+            except KeyError:
+                print(f"this({n}) isn't in morse code, \n"
+                      f"Morse code have limited amount of symbols, cause proper grammar isn't first priority in war")
+
+        return string
